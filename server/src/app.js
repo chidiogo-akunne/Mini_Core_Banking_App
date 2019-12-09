@@ -4,6 +4,7 @@ import path from 'path';
 import cookieParser from'cookie-parser';
 import logger from'morgan';
 import graphqlHTTP from 'express-graphql';
+import schema from './schema/schema';
 
 import indexRouter from'./routes/index';
 import usersRouter from'./routes/users';
