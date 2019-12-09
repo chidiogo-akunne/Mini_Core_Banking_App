@@ -8,6 +8,7 @@ import schema from './schema/schema';
 
 import indexRouter from'./routes/index';
 import usersRouter from'./routes/users';
+import adminRouter from './routes/admin';
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/admin', adminRouter);
 
 app.use('/graphql', graphqlHTTP({
   schema, 
