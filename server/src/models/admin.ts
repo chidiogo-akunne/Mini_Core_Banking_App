@@ -10,3 +10,20 @@ interface adminSchema extends mongoose.Document{
     deletedAt: Date;
 }
 
+const adminSchema = new mongoose.Schema(
+    {
+        firstname: String,
+        lastname: String,
+        email: String,
+        username: String,
+        password: String,
+        createdAt: Date,
+        deletedAt: {type: Date, default: null}
+    },
+    {
+        timestamps: true,
+    }
+)
+
+export default mongoose.model<adminSchema>('admin', adminSchema);
+
