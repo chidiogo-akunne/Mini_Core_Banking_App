@@ -4,6 +4,7 @@ import path from 'path';
 import cookieParser from'cookie-parser';
 import logger from'morgan';
 import graphqlHTTP from 'express-graphql';
+import mongoose from 'mongoose';
 import schema from './schema/schema';
 
 import indexRouter from'./routes/index';
@@ -11,6 +12,15 @@ import usersRouter from'./routes/users';
 import adminRouter from './routes/admin';
 
 const app = express();
+
+//connect to mongodb atlas
+mongoose.connect("mongodb+srv://Chidiogo:65572449@mini-banking-app-nfqoe.mongodb.net/test?retryWrites=true&w=majority", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+mongoose.connection('open', () => {
+  console.log('connected to database')
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, '../', 'views'));
