@@ -12,7 +12,7 @@ export async function loginAdmin(username: string, password: string) {
   if (!comparePassword) {
     throw new Error("Invalid username or password ");
   }
-  const token = jwt.sign({userId: findAdmin._id}, 'secretKey', {expiresIn: '30m'})
+  const token = jwt.sign({userId: findAdmin._id}, process.env.ACCESS_TOKEN_SECRET!, {expiresIn: '30m'})
   return { status: 200, message: "Login Succesful", payload: findAdmin, token };
 }
 

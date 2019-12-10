@@ -4,6 +4,7 @@ const router = express.Router();
 import {createAdminSchema, loginAdminSchema, openAccountSchema} from '../validation/validation'
 import {loginAdmin, createAdmin} from '../controllers/admin';
 import {openAccount, closeAccount} from '../controllers/Account'
+import Decode from '../middleWares/decode'
 
 /* admin login. */
 router.post('/login', async(req, res) => {
@@ -46,6 +47,8 @@ router.post('/signup', async(req, res) => {
     }
 })
 
+
+
 router.post('/createaccount', async(req, res) => {
     const {error} = openAccountSchema.validate(req.body, {
         abortEarly: false,
@@ -65,6 +68,8 @@ router.post('/createaccount', async(req, res) => {
         return res.status(500).json({message: err.message})
     }
 })
+
+router.use(Decode)
 
 router.patch('/closeaccount', async(req, res) => {
   
