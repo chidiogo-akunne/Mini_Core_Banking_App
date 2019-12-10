@@ -40,8 +40,7 @@ lastname: Joi
 const loginAdminSchema = Joi.object({
   username: Joi
     .string()
-    .alphanum()
-    .min(4)
+    .min(3)
     .max(40)
     .lowercase()
     .trim()
@@ -117,8 +116,6 @@ lastname: Joi
     .required(),
     employmentStatus: Joi
     .string()
-    .min(3)
-    .max(10)
     .trim()
     .lowercase(),
     phoneNumber: Joi
