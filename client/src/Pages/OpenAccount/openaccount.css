@@ -1,0 +1,18 @@
+.input-field {
+    width: 45%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-right: 3%;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    color: #5d5b6f;
+    font-size: 1rem;
+    font-weight: 300 !important;
+}
+
+.card-heading {
+    color: #5d5b6f;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
