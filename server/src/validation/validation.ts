@@ -1,6 +1,6 @@
 import Joi from '@hapi/joi';
 
-const creatAdminSchema = Joi.object({
+const createAdminSchema = Joi.object({
     firstname: Joi
     .string()
     .min(3)
@@ -29,4 +29,21 @@ lastname: Joi
     .required(), 
 })
 
-export {creatAdminSchema}
+const loginAdminSchema = Joi.object({
+  username: Joi
+    .string()
+    .alphanum()
+    .min(4)
+    .max(40)
+    .lowercase()
+    .trim()
+    .required(), 
+password: Joi.string()
+    .min(8)
+    .max(255)
+    .trim()
+    .required()
+    .label('Password does not meet requirements'),
+});
+
+export {createAdminSchema, loginAdminSchema}
