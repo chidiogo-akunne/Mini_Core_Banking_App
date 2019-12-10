@@ -54,5 +54,13 @@ export async function openAccount(accountOpeningDetails: accountDetailsType){
     const newaccount = new Account(detailsForAccount);
     const accountSaved = newaccount.save();
     return {status: 201, message: "Your account has been created successfully", payload: [accountSaved, userSaved]};
-    
+
+}
+
+export async function closeAccount(accoundID: string){
+   let closedAccount = Account.findOneAndUpdate(
+       {_id: accoundID},
+       {deletedAt: new Date()},
+   );
+   return {status: 200, message: "Your account has been closed successfully"} 
 }
