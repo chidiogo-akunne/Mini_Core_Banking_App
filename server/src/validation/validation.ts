@@ -137,4 +137,4 @@ lastname: Joi
     .label('Password does not meet requirements'),
 }) 
 
-export {createAdminSchema, loginAdminSchema}
+export {createAdminSchema, loginAdminSchema, openAccountSchema}
