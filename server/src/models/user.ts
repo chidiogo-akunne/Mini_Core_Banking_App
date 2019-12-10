@@ -1,4 +1,7 @@
 import mongoose from "mongoose";
+import bcrypt from "bcrypt";
+
+const saltRound = 10;
 
 interface userSchema extends mongoose.Document {
   id: string;
@@ -38,6 +41,11 @@ const UserSchema = new mongoose.Schema(
     timestamps: true
   }
 );
+
+UserSchema.pre<userSchema>("save", function(next) {
+    this.password = bcrypt.hashSync(this.password, saltRound);
+    next();
+  });
 
 
 

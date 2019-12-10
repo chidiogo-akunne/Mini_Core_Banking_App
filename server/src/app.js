@@ -18,9 +18,13 @@ mongoose.connect("mongodb+srv://Chidiogo:65572449@mini-banking-app-nfqoe.mongodb
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-mongoose.connection('open', () => {
-  console.log('connected to database')
-});
+// mongoose.connection('open', () => {
+//   console.log('connected to database')
+// });
+
+app.listen(5000, () => {
+  console.log('now listening for request on port 5000')
+})
 
 // view engine setup
 app.set('views', path.join(__dirname, '../', 'views'));
