@@ -1,3 +1,4 @@
+require('dotenv/config')
 import createError from 'http-errors';
 import express from 'express';
 import path from 'path';
@@ -16,11 +17,10 @@ const app = express();
 //connect to mongodb atlas
 mongoose.connect("mongodb+srv://Chidiogo:65572449@mini-banking-app-nfqoe.mongodb.net/test?retryWrites=true&w=majority", {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useFindAndModify: true
 })
-// mongoose.connection('open', () => {
-//   console.log('connected to database')
-// });
+
 
 app.listen(5000, () => {
   console.log('now listening for request on port 5000')
