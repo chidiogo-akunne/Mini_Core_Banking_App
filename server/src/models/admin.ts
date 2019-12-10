@@ -15,9 +15,10 @@ interface adminSchema extends mongoose.Document{
 
 const AdminSchema = new mongoose.Schema(
     {
+        id: {type: String},
         firstname: {type: String, trim: true},
         lastname: {type: String, trim: true},
-        email: {type: String, trim: true},
+        email: {type: String, trim: true, unique: true},
         username: {type: String, trim: true},
         password: {type: String, trim: true},
         createdAt: {type: Date, default: Date.now},
