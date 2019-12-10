@@ -1,4 +1,7 @@
 import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
+
+const saltRound = 10;
 
 interface adminSchema extends mongoose.Document{
     id: string;
@@ -10,14 +13,14 @@ interface adminSchema extends mongoose.Document{
     deletedAt: Date;
 }
 
-const adminSchema = new mongoose.Schema(
+const AdminSchema = new mongoose.Schema(
     {
-        firstname: String,
-        lastname: String,
-        email: String,
-        username: String,
-        password: String,
-        createdAt: Date,
+        firstname: {type: String, trim: true},
+        lastname: {type: String, trim: true},
+        email: {type: String, trim: true},
+        username: {type: String, trim: true},
+        password: {type: String, trim: true},
+        createdAt: {type: Date, default: Date.now},
         deletedAt: {type: Date, default: null}
     },
     {
@@ -25,5 +28,11 @@ const adminSchema = new mongoose.Schema(
     }
 )
 
-export default mongoose.model<adminSchema>('admin', adminSchema);
+//hash userpassword before saving into the database
+AdminSchema.pre<adminSchema>('save', function(next){
+    this.password = bcrypt.hashSync(this.password, saltRound);
+    next();
+});
+
+export default mongoose.model<adminSchema>('Admin', AdminSchema);
 
