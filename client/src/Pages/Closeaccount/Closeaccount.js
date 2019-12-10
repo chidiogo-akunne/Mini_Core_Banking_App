@@ -3,8 +3,6 @@ import axios from "axios";
 import "../OpenAccount/openaccount.css";
 
 import Card from "../../Components/Cards/Card";
-import Input from "../../Components/Inputs/Input";
-import Button from "../../Components/Buttons/Buttons";
 
 import "./CloseAccount.css";
 
@@ -41,33 +39,7 @@ export default function Closeaccount() {
 
   console.log(accounts);
 
-  const openAccountBtn = {
-    margin: "auto",
-    fontWeight: "600"
-  };
-
   const [response, setResponse] = useState("");
-  const [values, setValues] = useState({
-    accountType: "",
-    password: "",
-    username: "",
-    firstname: "",
-    lastname: "",
-    gender: "",
-    nationality: "",
-    maritaStatus: "",
-    religion: "",
-    dateOfBirth: "",
-    employmentStatus: "",
-    bvn: "",
-    email: "",
-    phoneNumber: ""
-  });
-
-  function handleChange(e) {
-    e.preventDefault();
-    setValues({ ...values, [e.target.name]: e.target.value });
-  }
 
   function closeAccountHandler(e) {
     e.preventDefault();

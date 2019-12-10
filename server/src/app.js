@@ -9,14 +9,14 @@ import mongoose from 'mongoose';
 import cors from 'cors'
 import schema from './schema/schema';
 
+import adminRouter from './routes/admin';
 import indexRouter from'./routes/index';
 import usersRouter from'./routes/users';
-import adminRouter from './routes/admin';
 
 const app = express();
 
 //connect to mongodb atlas
-mongoose.connect("mongodb+srv://Chidiogo:65572449@mini-banking-app-nfqoe.mongodb.net/test?retryWrites=true&w=majority", {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: true
@@ -38,9 +38,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
+app.use('/admin', adminRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/admin', adminRouter);
 
 app.use('/graphql', graphqlHTTP({
   schema, 
