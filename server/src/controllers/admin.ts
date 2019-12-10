@@ -1,19 +1,19 @@
 import Admin from "../models/admin";
 import bcrypt from "bcrypt";
+import jwt from 'jsonwebtoken';
 
 export async function loginAdmin(username: string, password: string) {
   const findAdmin = await Admin.findOne({ username: username });
   if (!findAdmin) {
-    //    return {status: 404, message: 'Invalid username or password'};
     throw new Error("Invalid username or password");
   }
 
   const comparePassword = await bcrypt.compare(password, findAdmin.password);
   if (!comparePassword) {
-    // return { status: 404, message: 'Invalid username or password'};
     throw new Error("Invalid username or password ");
   }
-  return { status: 200, message: "Login Succesful", payload: findAdmin };
+  const token = jwt.sign({userId: findAdmin._id}, 'secretKey', {expiresIn: '30m'})
+  return { status: 200, message: "Login Succesful", payload: findAdmin, token };
 }
 
 export async function createAdmin(firstname: string, lastname: string, email: string, username: string, password: string){
