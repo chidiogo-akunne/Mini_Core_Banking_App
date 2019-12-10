@@ -94,7 +94,7 @@ lastname: Joi
     .trim()
     .lowercase()
     .required(),
-    maritaStatus: Joi
+    maritalStatus: Joi
     .string()
     .min(3)
     .max(20)
@@ -109,7 +109,6 @@ lastname: Joi
     .lowercase(),
     dateOfBirth: Joi
     .string()
-    .min(3)
     .max(40)
     .trim()
     .lowercase()

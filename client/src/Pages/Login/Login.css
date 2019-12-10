@@ -1,6 +1,10 @@
 .loginButton{
     width: 20%;
-    margin: 2rem;
+    margin: 2rem auto 1rem;
     font-size: 18px;
     font-weight: 600;
+    display: flex;
+}
+.Cardh3{
+    text-align: center;
 }

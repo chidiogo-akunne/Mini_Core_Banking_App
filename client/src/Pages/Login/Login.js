@@ -5,6 +5,7 @@ import Inputs from "../../Components/Inputs/Input";
 import Buttons from "../../Components/Buttons/Buttons";
 import "./Login.css";
 import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Login(props) {
   const [response, setResponse] = useState("");
@@ -29,7 +30,7 @@ function Login(props) {
         console.log(response.data.data.message);
         setResponse(response.data.data.message);
         localStorage.setItem("token", response.data.data.token);
-        props.history.push("/admin/dashboard");
+        props.history.push("/admin");
       })
       .catch(err => {
         setResponse(err.response.data.message);
@@ -38,7 +39,7 @@ function Login(props) {
   return (
     <div>
       <Cards Cardstyle={cardStyle}>
-        <h3>MiniBank.Com</h3>
+        <h3 className="Cardh3">MiniBank.Com</h3>
         <p>{response}</p>
         <form onSubmit={handleSubmit}>
           <Inputs
@@ -63,7 +64,9 @@ function Login(props) {
           >
             Login
           </Buttons>
-          <h6>Do you want to signup? </h6>
+          <Link to="/admin-signup" className="link">
+            Do you want to signup?
+          </Link>
         </form>
       </Cards>
     </div>
@@ -71,7 +74,7 @@ function Login(props) {
 }
 
 const cardStyle = {
-  width: "60%",
+  width: "50%",
   border: "none",
   boxShadow: "4px 10px 15px #888",
   margin: "15% auto"

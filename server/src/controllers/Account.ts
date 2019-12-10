@@ -94,11 +94,15 @@ export async function closeAccount(accoundID: string) {
   let closedAccount = await Account.findOneAndUpdate(
     { _id: accoundID },
     { deletedAt: new Date() },
-    { new: true,  }
+    { new: true }
   );
   return {
     status: 200,
     message: "Your account has been closed successfully",
-    payload: closeAccount
+    payload: closedAccount
   };
+}
+
+export async function getAllAccounts() {
+  return await Account.find();
 }

@@ -7,7 +7,11 @@ import {
   openAccountSchema
 } from "../validation/validation";
 import { loginAdmin, createAdmin } from "../controllers/admin";
-import { openAccount, closeAccount } from "../controllers/Account";
+import {
+  openAccount,
+  closeAccount,
+  getAllAccounts
+} from "../controllers/Account";
 import Decode from "../middleWares/decode";
 
 /* admin login. */
@@ -72,7 +76,7 @@ router.post("/createaccount", async (req, res) => {
     });
   }
 
-  const accountOpeningDetails  = req.body;
+  const accountOpeningDetails = req.body;
   try {
     const signup = await openAccount(accountOpeningDetails);
     return res.status(200).json({ data: signup });
@@ -90,6 +94,15 @@ router.patch("/closeaccount", async (req, res) => {
     return res.status(200).json({ data: signup });
   } catch (err) {
     return res.status(500).json({ message: err.message });
+  }
+});
+
+router.get("/allaccounts", async (_req, res) => {
+  try {
+    let response = await getAllAccounts();
+    return res.status(200).json({ message: "Success", payload: response });
+  } catch (error) {
+    return res.status(500).json({ message: "Internal server error" });
   }
 });
 
