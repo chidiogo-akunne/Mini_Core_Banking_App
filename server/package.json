@@ -20,11 +20,15 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.8.0",
     "morgan": "~1.9.1",
-    "pug": "2.0.0-beta11"
+    "pug": "2.0.0-beta11",
+    "bcrypt": "^3.0.7",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "@types/hapi__joi": "^16.0.4",
     "@types/jsonwebtoken": "^8.3.5",
-    "typescript": "^3.7.3"
+    "typescript": "^3.7.3",
+    "@types/bcrypt": "^3.0.0",
+    "@types/dotenv": "^8.2.0"
   }
 }
