@@ -55,7 +55,7 @@ body {
   font-size: 1.1rem;
 }
 .admin-nav-logo span {
-  background: #f44336;
+  background: #007bff;;
   padding: 0 5px;
   border-radius: 4px;
   color: #1e1e2c;
@@ -130,7 +130,7 @@ body {
     font-size: 1.1rem;
   }
   .admin-nav-logo span {
-    background: #f44336;
+    background: #007bff;;
     padding: 0 5px;
     border-radius: 4px;
     color: #1e1e2c;
@@ -188,12 +188,12 @@ body {
     align-items: center;
     color: #5d5b6f;
     font-weight: 600;
-    font-size: 0.8rem;
+    font-size: 1rem;
     padding: 10px 20px 10px 26px;
     cursor: pointer;
   }
   ul.admin-nav-menu-item li:hover {
-    color: #f44336;
+    color: #007bff;;
   }
   ul.admin-nav-menu-item li i {
     margin-right: 15px;

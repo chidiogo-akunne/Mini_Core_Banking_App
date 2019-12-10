@@ -59,7 +59,7 @@ function Login(props) {
             name="password"
           />
           <Buttons
-            className="loginButton btn btn-success"
+            className="loginButton btn btn-primary"
             onClick={handleSubmit}
           >
             Login
